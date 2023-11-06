@@ -27,6 +27,12 @@ namespace ASP.NET___Fixed_Version.Controllers
         {
             return View();
         }
+        public IActionResult Calculator()
+        {
+            string op = Request.Query["op"];
+            ViewBag.op = op;
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
