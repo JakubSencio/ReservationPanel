@@ -2,10 +2,10 @@
 {
     public class Calculator
     {
-        public Operators? Operator { get; set; }
+        public Operator? Operators { get; set; }
         public double? X { get; set; }
         public double? Y { get; set; }
-
+            
         public String Op
         {
             get
@@ -57,3 +57,4 @@
             }
         }
     }
+}

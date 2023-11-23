@@ -19,13 +19,14 @@ namespace ASP.NET___Fixed_Version_2.Controllers
         }
         public enum Operator
         {
-            Unknown, Add, Mul, Sub, Div
+            Unknown, Add, Multiply, Subtract, Divide                
+   
         }
 
         public IActionResult About(Operator op)
         {
             ViewBag.Op = op;
-            return View();
+            return View(); 
         }
         public IActionResult Form()
         {
