@@ -25,6 +25,5 @@ public class Contact
         public Priority Priority { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public DateTime Birth { get; set; }
     } 
-}

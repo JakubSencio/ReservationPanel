@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET - Fixed Version", "ASP.NET - Fixed Version\ASP.NET - Fixed Version.csproj", "{AA6827EF-8067-49A5-9070-0F41F546F1A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASP.NET - Fixed Version", "ASP.NET - Fixed Version\ASP.NET - Fixed Version.csproj", "{AA6827EF-8067-49A5-9070-0F41F546F1A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET - Fixed Version 2", "ASP.NET - Fixed Version 2\ASP.NET - Fixed Version 2.csproj", "{2DA982DC-98FB-4376-A3FA-CFFB156F49BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASP.NET - Fixed Version 2", "ASP.NET - Fixed Version 2\ASP.NET - Fixed Version 2.csproj", "{2DA982DC-98FB-4376-A3FA-CFFB156F49BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET 3 - 4", "ASP.NET 3 - 4\ASP.NET 3 - 4.csproj", "{EC40E59D-CC95-4471-B2A9-4C70AAC3DDBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2DA982DC-98FB-4376-A3FA-CFFB156F49BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DA982DC-98FB-4376-A3FA-CFFB156F49BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DA982DC-98FB-4376-A3FA-CFFB156F49BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC40E59D-CC95-4471-B2A9-4C70AAC3DDBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC40E59D-CC95-4471-B2A9-4C70AAC3DDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC40E59D-CC95-4471-B2A9-4C70AAC3DDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC40E59D-CC95-4471-B2A9-4C70AAC3DDBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

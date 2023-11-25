@@ -1,0 +1,14 @@
+﻿@model Contact
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Usuwanie kontaktu</h2>
+
+<p>Czy na pewno chcesz usunąć kontakt o ID: @Model.Id?</p>
+
+<form asp-action="DeleteConfirmed" asp-controller="Contact" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Usuń</button> | <a asp-action="Index" asp-controller="Contact">Anuluj</a>
+</form>

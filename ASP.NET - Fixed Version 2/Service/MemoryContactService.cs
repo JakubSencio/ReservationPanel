@@ -34,3 +34,4 @@ namespace ASP.NET___Fixed_Version_2.Service
             return _contacts.ContainsKey(id) ? _contacts[id] : null;
         }
     }
+}
