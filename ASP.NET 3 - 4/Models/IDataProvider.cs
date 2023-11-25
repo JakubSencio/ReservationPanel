@@ -2,14 +2,11 @@
 {
     public interface IDateTimeProvider
     {
-        DateTime GetDateTime();
+        DateTime CurrentDateTime { get; }
     }
 
     public class CurrentDateTimeProvider : IDateTimeProvider
     {
-        public DateTime GetDateTime()
-        {
-            return DateTime.Now;
-        }
+        public DateTime CurrentDateTime => DateTime.Now;
     }
 }

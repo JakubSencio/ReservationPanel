@@ -20,6 +20,27 @@ namespace ASP.NET_3___4.Models
             _items.Add(contact.Id, contact);
             return contact.Id;  
         }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Contact> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Contact? FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public interface IDateTimeProvider
         {
             DateTime GetDateTime();

@@ -1,3 +1,4 @@
+using ASP.NET_3___4.Models;
 using static ASP.NET_3___4.Models.MemoryContactService;
 
 namespace ASP.NET_3___4
@@ -10,7 +11,7 @@ namespace ASP.NET_3___4
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<IContactService, MemoryContactService>();
-            builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
+            builder.Services.AddSingleton<Models.IDateTimeProvider, Models.CurrentDateTimeProvider>();
 
             var app = builder.Build();
 
