@@ -43,7 +43,7 @@ namespace Labolatorium_1.Controllers
         }
         public enum Operator
         {
-            Unknown, Add, Mul, Sub, Divasd
+            Unknown, Add, Mul, Sub, Divasdad
         }
     }
 }
