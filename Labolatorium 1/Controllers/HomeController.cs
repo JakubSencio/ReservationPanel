@@ -28,15 +28,22 @@ namespace Labolatorium_1.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult About()
+        public IActionResult About(Operator op)
         {
-            return View();
-        }
-        public IActionResult Calculator()
-        {
-            string op = Request.Query["op"];
             ViewBag.Op = op;
             return View();
+        }
+        public IActionResult Calculator(double a, double b)
+        {
+            string op = Request.Query["op"];
+            double c = a + b;
+            op = c.ToString();
+            ViewBag.Op = op;
+            return View();         
+        }
+        public enum Operator
+        {
+            Unknown, Add, Mul, Sub, Div
         }
     }
 }
