@@ -32,5 +32,11 @@ namespace Labolatorium_1.Controllers
         {
             return View();
         }
+        public IActionResult Calculator()
+        {
+            string op = Request.Query["op"];
+            ViewBag.Op = op;
+            return View();
+        }
     }
 }
