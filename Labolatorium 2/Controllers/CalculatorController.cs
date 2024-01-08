@@ -9,10 +9,10 @@ namespace Labolatorium_2.Controllers
         {
             return View();
         }
-        public IActionResult Result(double x, double y)
+        public IActionResult Result(double X, double Y)
         {
             string op = Request.Query["op"];
-            double c = x + y;
+            double c = X + Y;
             op = c.ToString();
             ViewBag.Op = op;
             return View();
