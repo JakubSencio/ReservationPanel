@@ -51,5 +51,6 @@
             default: return double.NaN;
             }
         }
+
     }
 }

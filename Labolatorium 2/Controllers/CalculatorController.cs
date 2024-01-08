@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Labolatorium_2.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Labolatorium_2.Controllers
 {
@@ -16,13 +17,17 @@ namespace Labolatorium_2.Controllers
             ViewBag.Op = op;
             return View();
         }
-        public enum Operator
-        {
-            Unknown, Add, Mul, Sub, Div
-        }
         public IActionResult Form()
         {
             return View();
+        }
+        public IActionResult Result(Calculator model)
+        {
+            if (!model.IsValid())
+            {
+                return View("Error");
+            }
+            return View(model);
         }
     }
 }
