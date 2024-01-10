@@ -1,6 +1,9 @@
-﻿namespace Labolatorium_2.Models
+﻿using Labolatorium_2.Controllers;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Labolatorium_2.Models
 {
-    public class Calculator
+    public class Calculator : CalculatorController
     {
         public Operators? Operator { get; set; }
         public double? X { get; set; }
@@ -52,5 +55,14 @@
             }
         }
 
+        [HttpPost]
+        public IActionResult Result([FromForm] Calculator model)
+        {
+            if (!model.IsValid())
+            {
+                return View("Error");
+            }
+            return View(model);
+        }
     }
-}
+}   

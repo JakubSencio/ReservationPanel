@@ -9,19 +9,13 @@ namespace Labolatorium_2.Controllers
         {
             return View();
         }
-        public IActionResult Result(double X, double Y)
-        {
-            string op = Request.Query["op"];
-            double c = X + Y;
-            op = c.ToString();
-            ViewBag.Op = op;
-            return View();
-        }
+
         public IActionResult Form()
         {
             return View();
         }
-        public IActionResult Result(Calculator model)
+        [HttpPost]
+        public IActionResult Result(Calculator model)   
         {
             if (!model.IsValid())
             {
