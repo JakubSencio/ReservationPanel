@@ -14,7 +14,6 @@ namespace Labolatorium_2.Controllers
         {
             return View();
         }
-        [HttpPost]
         public IActionResult Result(Calculator model)   
         {
             if (!model.IsValid())

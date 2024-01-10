@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Labolatorium_2.Models
 {
-    public class Calculator : CalculatorController
+    public class Calculator 
     {
         public Operators? Operator { get; set; }
         public double? X { get; set; }
@@ -53,16 +53,6 @@ namespace Labolatorium_2.Models
                   
             default: return double.NaN;
             }
-        }
-
-        [HttpPost]
-        public IActionResult Result([FromForm] Calculator model)
-        {
-            if (!model.IsValid())
-            {
-                return View("Error");
-            }
-            return View(model);
         }
     }
 }   
