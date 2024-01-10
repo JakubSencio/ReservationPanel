@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BirthFormModel
+
+<h2>Formularz urodzinowy</h2>
+
+@if (ViewBag.Message != null)
+{
+        <p>@ViewBag.Message</p>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+        <p style="color: red;">@ViewBag.ErrorMessage</p>
+}
+
+<form asp-action="Index" method="post">
+    <div>
+        <label for="Name">Imię:</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label for="BirthDate">Data urodzenia:</label>
+        <input asp-for="BirthDate" type="date" />
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+
+    <div>
+        <button type="submit">Wyślij</button>
+    </div>
+</form>
