@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Labolatorium3.Models
 {
@@ -9,6 +9,6 @@ namespace Labolatorium3.Models
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
         [HiddenInput]
-        public int Id { get; set; }
+        public int Id { get; set; } // Reservation - data, miasto, adres, pokój, właściciel, cena
     }
 }
