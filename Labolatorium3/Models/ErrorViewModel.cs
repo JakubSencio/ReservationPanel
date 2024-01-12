@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace Labolatorium3.Models
 {
     public class ErrorViewModel
@@ -5,5 +7,8 @@ namespace Labolatorium3.Models
         public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+        [HiddenInput]
+        public int Id { get; set; }
     }
 }
