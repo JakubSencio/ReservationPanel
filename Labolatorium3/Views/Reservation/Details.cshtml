@@ -1,0 +1,22 @@
+﻿@model Reservation
+@{
+}
+
+<h2>Szczegóły Rezerwacji</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>ID</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Imie</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Pokoj</dt>
+        <dd>@Model.Room</dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-action="Index" class="btn btn-primary">Powrót do Listy</a>
+</p>

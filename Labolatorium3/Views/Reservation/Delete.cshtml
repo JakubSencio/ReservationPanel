@@ -1,0 +1,13 @@
+﻿@model Reservation
+@{
+}
+
+<h2>Usuwanie Rezerwacji</h2>
+
+<form asp-action="Delete" asp-controller="ReservationController" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>Czy na pewno chcesz usunąć rezerwację o ID: @Model.Id i nazwie: @Model.Name?</p>
+
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

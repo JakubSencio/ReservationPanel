@@ -1,0 +1,31 @@
+﻿@model Dictionary<int, Reservation>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Miasto</th>
+        <th>Adres</th>
+        <th>Numer pokoju</th>
+        <th>Właściciel</th>
+        <th>Cena</th>
+        <th>Akcje</th>
+    </tr>
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>@item.Value.Id</td>
+            <td>@item.Value.Date</td>
+            <td>@item.Value.City</td>
+            <td>@item.Value.Region</td>
+            <td>@item.Value.Room</td>
+            <td>@item.Value.Name</td>
+            <td>@item.Value.Price</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Reservation" asp-route-id="@item.Value.Id">Edytuj</a> |
+                <a asp-action="Details" asp-controller="Reservation" asp-route-id="@item.Value.Id">Szczegóły</a> |
+                <a asp-action="Delete" asp-controller="Reservation" asp-route-id="@item.Value.Id">Usuń</a>
+            </td>
+        </tr>
+    }
+</table>

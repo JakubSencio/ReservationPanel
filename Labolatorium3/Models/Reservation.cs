@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using static Labolatorium3.Models.Enum;
 
 namespace Labolatorium3.Models
 {
     public class Reservation : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
         [HiddenInput]
         public int Id { get; set; } //Reservation - data, miasto, adres, pokój, właściciel, cena
 
@@ -31,6 +29,6 @@ namespace Labolatorium3.Models
         [Range(0, int.MaxValue, ErrorMessage = "Proszę podać poprawną cenę")]
         public int Price { get; set; }
 
-
+        public Priority Priority { get; set; }
     }
 }

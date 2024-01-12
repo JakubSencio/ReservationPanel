@@ -1,0 +1,65 @@
+﻿@model Reservation
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form asp-action="ReservationForm" asp-controller="ReservationController" method="post">
+    <div>
+        <label asp-for="Id">ID</label>
+        <div>
+            <input type="text" asp-for="Id" class="form-control"/>
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="Date">Data</label>
+        <div>
+            <input type="date" asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="City">Miasto</label>
+        <div>
+            <input type="text" asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="Region">Adres</label>
+        <div>
+            <input type="text" asp-for="Region" class="form-control" />
+            <span asp-validation-for="Region" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="Room">Numer pokoju</label>
+        <div>
+            <input type="text" asp-for="Room" class="form-control" />
+            <span asp-validation-for="Room" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="Name">Imię</label>
+        <div>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="Price">Cena</label>
+        <div>
+            <input type="number" asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <button type="submit">Zapisz</button>
+</form>

@@ -1,0 +1,45 @@
+﻿@model Reservation
+
+<h2>Utwórz nową rezerwację</h2>
+
+<form asp-action="Create" asp-controller="Reservation" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Date">Data:</label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="City">Miasto:</label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Region">Adres:</label>
+        <input asp-for="Region" class="form-control" />
+        <span asp-validation-for="Region" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Room">Numer pokoju:</label>
+        <input asp-for="Room" class="form-control" />
+        <span asp-validation-for="Room" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name">Właściciel:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Cena:</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Utwórz</button>
+</form>
