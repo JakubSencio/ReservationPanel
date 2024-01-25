@@ -28,7 +28,7 @@ namespace Labolatorium3
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Reservation}/{action=Index}/{id?}");
 
             app.Run();
 

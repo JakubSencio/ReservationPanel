@@ -6,10 +6,37 @@ namespace Labolatorium3.Controllers
 {
     public class ReservationController : Controller
     {
+        
         static Dictionary<int, Reservation> _reservation = new Dictionary<int, Reservation>();
+        public ReservationController()
+        { 
+
+        }
         public IActionResult Index()
         {
             return View(_reservation);
+        }
+
+        [HttpPost]
+        public IActionResult Hotel(Reservation model)
+        {
+            if (ModelState.IsValid)
+            {
+                int id = _reservation.Keys.Count != 0 ? _reservation.Keys.Max() : 0;
+                model.Id = id + 1;
+                _reservation.Add(model.Id, model);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpGet]
+        public IActionResult Hotel()
+        {
+            return View();
         }
         [HttpGet]
         public IActionResult Create()
@@ -36,7 +63,7 @@ namespace Labolatorium3.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            if (_reservation.ContainsKey(id))
+            if (_reservation.Keys.Contains(id))
             {
                 return View(_reservation[id]);
             }
@@ -51,7 +78,7 @@ namespace Labolatorium3.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_reservation.ContainsKey(model.Id))
+                if (_reservation.Keys.Contains(model.Id))
                 {
                     _reservation[model.Id] = model;
                     return RedirectToAction("Index");
@@ -78,6 +105,17 @@ namespace Labolatorium3.Controllers
             {
                 return NotFound();
             }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(string name, int id)
+        {
+            
+            return View(new Reservation
+            {
+                Id = id,
+                Name = name
+            });
         }
 
         [HttpPost]

@@ -4,7 +4,7 @@
 *@
 @{
 }
-<form asp-action="ReservationForm" asp-controller="ReservationController" method="post">
+<form asp-action="Hotel" asp-controller="Reservation" method="post">
     <div>
         <label asp-for="Id">ID</label>
         <div>
@@ -60,6 +60,6 @@
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
     </div>
-
     <button type="submit">Zapisz</button>
 </form>
+

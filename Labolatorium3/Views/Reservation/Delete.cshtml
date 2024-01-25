@@ -4,7 +4,7 @@
 
 <h2>Usuwanie Rezerwacji</h2>
 
-<form asp-action="Delete" asp-controller="ReservationController" method="post">
+<form asp-action="Delete" asp-controller="Reservation" method="post">
     <input type="hidden" asp-for="Id" />
     <p>Czy na pewno chcesz usunąć rezerwację o ID: @Model.Id i nazwie: @Model.Name?</p>
 

@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using static Labolatorium3.Models.Enum;
 
 namespace Labolatorium3.Models
 {
-    public class Reservation : Controller
+    public class Reservation
     {
 
         [HiddenInput]

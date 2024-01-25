@@ -1,4 +1,5 @@
-﻿@model Reservation
+﻿@using static Labolatorium3.Models.Enum;
+@model Reservation
 
 <h2>Utwórz nową rezerwację</h2>
 
@@ -40,6 +41,12 @@
         <input asp-for="Price" class="form-control" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-
+    <label asp-for="Priority">Kategoria</label>
+    <div>
+        <span asp-validation-for="Priority" class="text-danger"></span>
+    </div>
+    <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
+    <br />
     <button type="submit" class="btn btn-primary">Utwórz</button>
+    <br />
 </form>
