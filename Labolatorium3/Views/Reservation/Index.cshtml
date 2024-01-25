@@ -3,13 +3,14 @@
 <table class="table table-bordered table-hover">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Data</th>
+            <th scope="col">@Html.DisplayNameFor(model => model[0].Name)</th>
+            <th scope="col">Data</th>   
             <th scope="col">Miasto</th>
             <th scope="col">Adres</th>
             <th scope="col">Numer pokoju</th>
             <th scope="col">Właściciel</th>
             <th scope="col">Cena</th>
+            <th scope="col">Priorytet</th>
             <th scope="col">Akcje</th>
         </tr>
     </thead>
@@ -24,6 +25,7 @@
                 <td>@item.Value.Room</td>
                 <td>@item.Value.Name</td>
                 <td>@item.Value.Price</td>
+                <td>@item.Value.Priority</td>
                 <td>
                     <div class="btn-group" role="group">
                         <a href="@Url.Action("Edit", "Reservation", new { id = item.Value.Id })" class="btn btn-primary">Edytuj</a>

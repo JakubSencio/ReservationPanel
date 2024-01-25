@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace Labolatorium3.Models
 {
@@ -10,10 +12,10 @@ namespace Labolatorium3.Models
         }
         public enum Priority
         {
-            Low = 1,
-            Normal = 2,
-            High = 3,
-            Urgent = 4
+            [Display(Name = "Niski")] Low = 1,
+            [Display(Name = "Normalny")] Normal = 2,
+            [Display(Name = "Wysoki")] High = 3,
+            [Display(Name = "Pilny")] Urgent = 4
         }
     }
 }
