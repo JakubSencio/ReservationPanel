@@ -14,7 +14,7 @@ namespace Labolatorium3.Controllers
         }
         public IActionResult Index()
         {
-            return View(_reservation.ToList);
+            return View(_reservation);
         }
 
         [HttpPost]
