@@ -29,7 +29,7 @@ namespace Labolatorium3
             app.UseAuthorization();
 
             app.MapControllerRoute(
-                name: "default",
+                name: "default",    
                 pattern: "{controller=Reservation}/{action=Index}/{id?}");
 
             app.Run();

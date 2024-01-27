@@ -85,9 +85,10 @@ public class ReservationController : Controller
     }
 
     [HttpPost]
-    public IActionResult DeleteConfirmed(int id)
+    public IActionResult Delete(Reservation model, int id)
     {
-        _reservationService.Delete(id);
-        return RedirectToAction("Index");
+            _reservationService.Delete(id);
+            return RedirectToAction("Index");
     }
 }
+

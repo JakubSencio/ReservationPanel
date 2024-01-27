@@ -9,6 +9,7 @@ namespace Labolatorium3.Models
         void Update(Reservation reservation);
         List<Reservation> FindAll();
         Reservation? FindById(int id);
+
     }
 
     public class MemoryReservationService : IReservationService
