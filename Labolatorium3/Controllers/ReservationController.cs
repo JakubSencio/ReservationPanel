@@ -1,135 +1,93 @@
-﻿using Labolatorium3.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Labolatorium3.Models; // Zaimportuj odpowiednią przestrzeń nazw
 
-namespace Labolatorium3.Controllers
+public class ReservationController : Controller
 {
-    public class ReservationController : Controller
+    private readonly IReservationService _reservationService;
+
+    public ReservationController(IReservationService reservationService)
     {
-        
-        static Dictionary<int, Reservation> _reservation = new Dictionary<int, Reservation>();
-        public ReservationController()
-        { 
+        _reservationService = reservationService;
+    }
 
-        }
-        public IActionResult Index()
-        {
-            return View(_reservation);
-        }
+    public IActionResult Index()
+    {
+        var reservations = _reservationService.FindAll();
+        return View(reservations);
+    }
 
-        [HttpPost]
-        public IActionResult Hotel(Reservation model)
-        {
-            if (ModelState.IsValid)
-            {
-                int id = _reservation.Keys.Count != 0 ? _reservation.Keys.Max() : 0;
-                model.Id = id + 1;
-                _reservation.Add(model.Id, model);
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
 
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View();
-            }
-        }
-        [HttpGet]
-        public IActionResult Hotel()
+    [HttpPost]
+    public IActionResult Create(Reservation model)
+    {
+        if (ModelState.IsValid)
         {
-            return View();
+            _reservationService.Add(model);
+            return RedirectToAction("Index");
         }
-        [HttpGet]
-        public IActionResult Create()
+        else
         {
-            return View();
+            return View(model);
         }
+    }
 
-        [HttpPost]
-        public IActionResult Create(Reservation model)
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var reservation = _reservationService.FindById(id);
+        if (reservation == null)
         {
-            if (ModelState.IsValid)
-            {
-                int id = _reservation.Keys.Count != 0 ? _reservation.Keys.Max() : 0;
-                model.Id = id + 1;
-                _reservation.Add(model.Id, model);
+            return NotFound();
+        }
+        return View(reservation);
+    }
 
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(model);
-            }
-        }
-        [HttpGet]
-        public IActionResult Edit(int id)
+    [HttpPost]
+    public IActionResult Edit(Reservation model)
+    {
+        if (ModelState.IsValid)
         {
-            if (_reservation.Keys.Contains(id))
-            {
-                return View(_reservation[id]);
-            }
-            else
-            {
-                return NotFound();
-            }
+            _reservationService.Update(model);
+            return RedirectToAction("Index");
         }
+        else
+        {
+            return View(model);
+        }
+    }
 
-        [HttpPost]
-        public IActionResult Edit(Reservation model)
+    [HttpGet]
+    public IActionResult Details(int id)
+    {
+        var reservation = _reservationService.FindById(id);
+        if (reservation == null)
         {
-            if (ModelState.IsValid)
-            {
-                if (_reservation.Keys.Contains(model.Id))
-                {
-                    _reservation[model.Id] = model;
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return NotFound();
-                }
-            }
-            else
-            {
-                return View(model);
-            }
+            return NotFound();
         }
+        return View(reservation);
+    }
 
-        [HttpGet]
-        public IActionResult Details(int id)
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var reservation = _reservationService.FindById(id);
+        if (reservation == null)
         {
-            if (_reservation.ContainsKey(id))
-            {
-                return View(_reservation[id]);
-            }
-            else
-            {
-                return NotFound();
-            }
+            return NotFound();
         }
+        return View(reservation);
+    }
 
-        [HttpGet]
-        public IActionResult Delete(string name, int id)
-        {
-            
-            return View(new Reservation
-            {
-                Id = id,
-                Name = name
-            });
-        }
-
-        [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            if (_reservation.ContainsKey(id))
-            {
-                _reservation.Remove(id);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return NotFound();
-            }
-        }
+    [HttpPost]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        _reservationService.Delete(id);
+        return RedirectToAction("Index");
     }
 }

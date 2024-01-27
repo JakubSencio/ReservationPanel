@@ -1,39 +1,72 @@
-﻿@model Dictionary<int, Reservation>
+﻿@model List<Reservation>
 
-<table class="table table-bordered table-hover">
-    <thead class="thead-dark">
+@if (Model.Count > 0)
+{
+    <table class="table">
         <tr>
-            <th scope="col">@Html.DisplayNameFor(model => model[0].Name)</th>
-            <th scope="col">Data</th>   
-            <th scope="col">Miasto</th>
-            <th scope="col">Adres</th>
-            <th scope="col">Numer pokoju</th>
-            <th scope="col">Właściciel</th>
-            <th scope="col">Cena</th>
-            <th scope="col">Priorytet</th>
-            <th scope="col">Akcje</th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Date)
+            </th>
+                        <th>
+                @Html.DisplayNameFor(model => model[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Region)
+            </th>
+                        <th>
+                @Html.DisplayNameFor(model => model[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Priority)
+            </th>
+            <th>
+                Akcje
+            </th>
         </tr>
-    </thead>
-    <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Value.Id</td>
-                <td>@item.Value.Date.ToShortDateString()</td>
-                <td>@item.Value.City</td>
-                <td>@item.Value.Region</td>
-                <td>@item.Value.Room</td>
-                <td>@item.Value.Name</td>
-                <td>@item.Value.Price</td>
-                <td>@item.Value.Priority</td>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.City
+                </td>
+                <td>
+                    @item.Region
+                </td>
+                <td>
+                    @item.Room
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                                <td>
+                    @item.Priority
+                </td>
                 <td>
                     <div class="btn-group" role="group">
-                        <a href="@Url.Action("Edit", "Reservation", new { id = item.Value.Id })" class="btn btn-primary">Edytuj</a>
-                        <a href="@Url.Action("Details", "Reservation", new { id = item.Value.Id })" class="btn btn-info">Szczegóły</a>
-                        <a href="@Url.Action("Delete", "Reservation", new { id = item.Value.Id, name = item.Value.Name })" class="btn btn-danger">Usuń</a>
+                        <a href="@Url.Action("Edit", "Reservation", new { id = item.Id })" class="btn btn-primary">Edytuj</a>
+                        <a href="@Url.Action("Details", "Reservation", new { id = item.Id })" class="btn btn-info">Szczegóły</a>
+                        <a href="@Url.Action("Delete", "Reservation", new { id = item.Id, name = item.Name })" class="btn btn-danger">Usuń</a>
                     </div>
                 </td>
             </tr>
         }
-    </tbody>
-</table>
+    </table>
+}
