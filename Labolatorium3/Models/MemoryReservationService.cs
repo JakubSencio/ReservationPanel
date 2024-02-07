@@ -8,18 +8,20 @@ namespace Labolatorium3.Models
         void Delete(int id);
         void Update(Reservation reservation);
         List<Reservation> FindAll();
-        Reservation? FindById(int id);
+        Reservation? FindById(int id);  
 
     }
 
     public class MemoryReservationService : IReservationService
     {
         private Dictionary<int, Reservation> _items = new Dictionary<int, Reservation>();
+        private readonly IDateTimeProvider _timeProvider;
 
         public int Add(Reservation item)
         {
             int id = _items.Keys.Count != 0 ? _items.Keys.Max() : 0;
             item.Id = id + 1;
+            item.Created = _timeProvider.Now;
             _items.Add(item.Id, item);
             return item.Id;
         }
@@ -39,9 +41,20 @@ namespace Labolatorium3.Models
             return _items.ContainsKey(id) ? _items[id] : null;
         }
 
-        public void Update(Reservation item)
+        public void Update(Reservation reservation)
         {
-            _items[item.Id] = item;
+            if (_items.ContainsKey(reservation.Id))
+            {
+                _items[reservation.Id] = reservation;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Reservation with ID {reservation.Id} not found.");
+            }
+        }
+        public MemoryReservationService(IDateTimeProvider timeProvider)
+        {
+            _timeProvider = timeProvider;
         }
     }
 }

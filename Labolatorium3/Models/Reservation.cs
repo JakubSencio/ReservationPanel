@@ -37,5 +37,8 @@ namespace Labolatorium3.Models
         public int Price { get; set; }
 
         public Priority Priority { get; set; }
+
+        [HiddenInput]
+        public DateTime Created { get; set; }   
     }
 }
