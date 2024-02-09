@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Labolatorium3.Models; // Zaimportuj odpowiednią przestrzeń nazw
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize(Roles = "admin")]
 public class ReservationController : Controller
 {
     private readonly IReservationService _reservationService;
@@ -10,7 +13,6 @@ public class ReservationController : Controller
     {
         _reservationService = reservationService;
     }
-
     public IActionResult Index()
     {
         var reservations = _reservationService.FindAll();
@@ -20,7 +22,12 @@ public class ReservationController : Controller
     [HttpGet]
     public IActionResult Create()
     {
-        return View();
+        Reservation model = new Reservation();
+        model.Organizations = _reservationService
+            .FindAllOrganizationsForVieModel()
+            .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+            .ToList();
+        return View(model);
     }
 
     [HttpPost]
@@ -33,6 +40,10 @@ public class ReservationController : Controller
         }
         else
         {
+            model.Organizations = _reservationService
+                .FindAllOrganizationsForVieModel()
+                .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+                .ToList();
             return View(model);
         }
     }

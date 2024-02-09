@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Data.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Labolatorium3.Models
 {
@@ -8,10 +10,11 @@ namespace Labolatorium3.Models
         void Delete(int id);
         void Update(Reservation reservation);
         List<Reservation> FindAll();
-        Reservation? FindById(int id);  
+        Reservation? FindById(int id);
+        List<OrganizationEntity> FindAllOrganizationsForVieModel();
 
     }
-
+    /*
     public class MemoryReservationService : IReservationService
     {
         private Dictionary<int, Reservation> _items = new Dictionary<int, Reservation>();
@@ -52,9 +55,16 @@ namespace Labolatorium3.Models
                 throw new KeyNotFoundException($"Reservation with ID {reservation.Id} not found.");
             }
         }
+
+        public List<OrganizationEntity> FindAllOrganizationsForVieModel()
+        {
+            throw new NotImplementedException();
+        }
+
         public MemoryReservationService(IDateTimeProvider timeProvider)
         {
             _timeProvider = timeProvider;
         }
-    }
+
+    }*/
 }

@@ -1,4 +1,9 @@
-using Labolatorium3.Models;
+﻿using Labolatorium3.Models;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Data;
+
 
 namespace Labolatorium3
 {
@@ -7,11 +12,21 @@ namespace Labolatorium3
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+                        var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
 
             // Add services to the container.
+            builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IReservationService, MemoryReservationService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
+
+            builder.Services.AddDbContext<Data.AppDbContext>();
+            builder.Services.AddDefaultIdentity<IdentityUser>()       // dodać
+    .AddRoles<IdentityRole>()                             //
+    .AddEntityFrameworkStores<Data.AppDbContext>();
+
+            builder.Services.AddTransient<IReservationService, EFReservationService>();
+            builder.Services.AddMemoryCache();                        // dodać
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -27,8 +42,10 @@ namespace Labolatorium3
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            app.UseAuthentication();                                 // dodać
+            app.UseAuthorization();                                  // dodać
+            app.UseSession();                                        // dodać 
+            app.MapRazorPages();                                     // dodać
 
             app.MapControllerRoute(
                 name: "default",    
