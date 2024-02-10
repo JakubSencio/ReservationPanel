@@ -45,9 +45,9 @@ namespace Labolatorium3.Models
             return ReservationMapper.FromEntity(_context.Reservations.Find(id));
         }
 
-        public void Update(Reservation contact)
+        public void Update(Reservation reservation)
         {
-            _context.Reservations.Update(ReservationMapper.ToEntity(contact));
+            _context.Reservations.Update(ReservationMapper.ToEntity(reservation));
             _context.SaveChanges();
         }
     }
