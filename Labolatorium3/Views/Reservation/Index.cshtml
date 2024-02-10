@@ -2,71 +2,73 @@
 
 @if (Model.Count > 0)
 {
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].Date)
-            </th>
-                        <th>
-                @Html.DisplayNameFor(model => model[0].City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].Region)
-            </th>
-                        <th>
-                @Html.DisplayNameFor(model => model[0].Room)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].Priority)
-            </th>
-            <th>
-                Akcje
-            </th>
-        </tr>
-        @foreach (var item in Model)
-        {
+    <div style="background-color: #f8f9fa; padding: 20px;">
+        <table class="table">
             <tr>
-                <td>
-                    @item.Id
-                </td>
-                <td>
-                    @item.Date
-                </td>
-                <td>
-                    @item.City
-                </td>
-                <td>
-                    @item.Region
-                </td>
-                <td>
-                    @item.Room
-                </td>
-                <td>
-                    @item.Name
-                </td>
-                <td>
-                    @item.Price
-                </td>
-                                <td>
-                    @item.Priority
-                </td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a href="@Url.Action("Edit", "Reservation", new { id = item.Id })" class="btn btn-primary">Edytuj</a>
-                        <a href="@Url.Action("Details", "Reservation", new { id = item.Id })" class="btn btn-info">Szczegóły</a>
-                        <a href="@Url.Action("Delete", "Reservation", new { id = item.Id, name = item.Name })" class="btn btn-danger">Usuń</a>
-                    </div>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Region)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Room)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Priority)
+                </th>
+                <th>
+                    Akcje
+                </th>
             </tr>
-        }
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Date
+                    </td>
+                    <td>
+                        @item.City
+                    </td>
+                    <td>
+                        @item.Region
+                    </td>
+                    <td>
+                        @item.Room
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+                    <td>
+                        @item.Priority
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="@Url.Action("Edit", "Reservation", new { id = item.Id })" class="btn btn-primary">Edytuj</a>
+                            <a href="@Url.Action("Details", "Reservation", new { id = item.Id })" class="btn btn-info">Szczegóły</a>
+                            <a href="@Url.Action("Delete", "Reservation", new { id = item.Id, name = item.Name })" class="btn btn-danger">Usuń</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 }

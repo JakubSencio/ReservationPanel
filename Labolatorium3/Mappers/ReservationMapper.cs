@@ -14,6 +14,9 @@ namespace Labolatorium3.Mappers
                 Region = entity.Region,
                 City = entity.City,
                 Date = entity.Date,
+
+                OrganizationId = entity.OrganizationId,
+
             };
         }
 
@@ -26,6 +29,7 @@ namespace Labolatorium3.Mappers
                 Region = model.Region,
                 City = model.City,
                 Date = model.Date,
+                OrganizationId = model.OrganizationId,
             };
         }
     }

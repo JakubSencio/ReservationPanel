@@ -19,7 +19,7 @@ namespace Labolatorium3.Models
             _context.SaveChanges();
             return e.Entity.Id;
         }
-
+         
         public void Delete(int id)
         {
             ReservationEntity? find = _context.Reservations.Find(id);
