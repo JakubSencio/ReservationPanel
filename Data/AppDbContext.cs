@@ -136,17 +136,11 @@ namespace Data
                    Region = "ul. Fiolkowa",
                    City = "Krakow",
                    OrganizationId = 1,
-
-               },
-               new ReservationEntity()
-               {
-                   Id = 2,
-                   Name = "C#",
-                   Region = "ul. Rozowa",
-                   City = "Krakow",
-                   OrganizationId = 2,
+                   Room = 5,
+                   Price = 30,
+                   Priority = 2,
                }
-           );
+           ); 
             modelBuilder.Entity<OrganizationEntity>()
                .OwnsOne(e => e.Address)
                .HasData(

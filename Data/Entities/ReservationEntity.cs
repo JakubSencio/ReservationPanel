@@ -27,7 +27,10 @@ namespace Data.Entities
         public DateTime Date { get; set; }
         public int OrganizationId { get; set; }
         public OrganizationEntity? Organization { get; set; }
-
+        
+        public int Room { get; set; }
+        public int Price { get; set; }
+        public int Priority { get; set; }
     }
 }
 

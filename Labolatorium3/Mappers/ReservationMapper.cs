@@ -1,5 +1,6 @@
 ﻿using Data.Entities;
 using Labolatorium3.Models;
+using static Labolatorium3.Models.Enum;
 
 namespace Labolatorium3.Mappers
 {
@@ -14,8 +15,10 @@ namespace Labolatorium3.Mappers
                 Region = entity.Region,
                 City = entity.City,
                 Date = entity.Date,
-
+                Room = entity.Room,
                 OrganizationId = entity.OrganizationId,
+                Price = entity.Price,
+                Priority = (Priority)entity.Priority,
 
             };
         }
@@ -29,7 +32,10 @@ namespace Labolatorium3.Mappers
                 Region = model.Region,
                 City = model.City,
                 Date = model.Date,
+                Room = model.Room,
                 OrganizationId = model.OrganizationId,
+                Price = model.Price,
+                Priority = (int)model.Priority
             };
         }
     }

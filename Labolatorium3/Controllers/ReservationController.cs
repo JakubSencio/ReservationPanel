@@ -90,6 +90,10 @@ public class ReservationController : Controller
         {
             return NotFound();
         }
+        reservation.Organizations = _reservationService
+        .FindAllOrganizationsForVieModel()
+        .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+        .ToList();
         return View(reservation);
     }
 

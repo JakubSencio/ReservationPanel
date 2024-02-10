@@ -1,9 +1,10 @@
 ﻿@model Reservation
 @{
+    string OrganisationTitle = Model.Organizations.FirstOrDefault(b => b.Value == Model.OrganizationId.ToString())?.Text;
 }
 <div style="background-color: #f8f9fa; padding: 20px;">
 <h2>Szczegóły Rezerwacji</h2>
-
+        
 <div>
     <dl class="dl-horizontal">
         <dt>ID</dt>
@@ -26,6 +27,9 @@
 
         <dt>Cena</dt>
         <dd>@Model.Room</dd>
+
+        <dt>Organizacja</dt>
+            <dd>@OrganisationTitle</dd>
     </dl>
 </div>
 
