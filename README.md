@@ -7,6 +7,8 @@ To access the application's features, users must log in using their individual a
 
 II. Application Dashboard
 
+![image](https://github.com/JakubSencio/ReservationPanel/assets/116436495/91d66363-1c22-4571-bb40-d7d371e358e5)
+
 Upon logging in, users are directed to the application dashboard, where all reservations are displayed along with controls for managing them. The dashboard provides an overview of existing reservations, including details such as customer name, reservation dates, and status. Additionally, users can utilize various controls and filters to streamline reservation management tasks. These controls may include options for sorting reservations, applying filters based on specific criteria, and performing bulk actions such as editing or deleting multiple reservations simultaneously. The application dashboard serves as a centralized hub for efficiently managing reservations, allowing users to navigate and interact with reservation data seamlessly.
 
 III. Managing Reservations
@@ -29,5 +31,9 @@ Server-Side Validation: Server-side validation is performed on the server after 
 By employing both client-side and server-side validation techniques, the application ensures that only accurate and appropriate data is accepted, minimizing the risk of data corruption or security vulnerabilities.
 
 V. Data Filtering
+![image](https://github.com/JakubSencio/ReservationPanel/assets/116436495/03d34d7a-5b20-4a0f-be6a-21754b50dd6e)
 
 The application includes data filtering capabilities to enable users to efficiently search and retrieve relevant information. Users can apply filters based on various criteria such as date, customer name, or reservation status. This feature enhances user experience by allowing them to quickly locate specific reservations or narrow down search results according to their preferences. Data filtering ensures that users can access the information they need promptly, contributing to improved productivity and usability of the application.
+
+VI. Technologies used
+The application is built using ASP.NET for the backend development, providing a robust and scalable framework for web application development. For data storage, the application utilizes SQLite, a lightweight and efficient relational database management system (RDBMS). These technologies are chosen for their reliability, performance, and compatibility with the requirements of the reservation management application
