@@ -4,9 +4,11 @@ I. Logging into the Application
 ![image](https://github.com/JakubSencio/ReservationPanel/assets/116436495/234c480f-a128-4250-8171-435fdd2e80fc)
 
 To access the application's features, users must log in using their individual authentication credentials. Logging in is essential to ensure the security and privacy of users and to control access to various application functions. The login interface allows users to enter their username and password. Upon successful authentication, users gain access to the main application interface.
+
 II. Application Dashboard
 
 Upon logging in, users are directed to the application dashboard, where all reservations are displayed along with controls for managing them. The dashboard provides an overview of existing reservations, including details such as customer name, reservation dates, and status. Additionally, users can utilize various controls and filters to streamline reservation management tasks. These controls may include options for sorting reservations, applying filters based on specific criteria, and performing bulk actions such as editing or deleting multiple reservations simultaneously. The application dashboard serves as a centralized hub for efficiently managing reservations, allowing users to navigate and interact with reservation data seamlessly.
+
 III. Managing Reservations
 
 The application allows users to perform basic operations related to reservation management. These operations include adding, editing, and deleting reservations along with their detailed data. Below are the main functions related to reservation management:
