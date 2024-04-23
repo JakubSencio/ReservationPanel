@@ -2,13 +2,13 @@
 @{
 }
 
-<h2>Usuwanie Rezerwacji</h2>
+<h2>Deleting Reservation</h2>
 <div style="background-color: #f8f9fa; padding: 20px;">
 <form asp-action="Delete" asp-controller="Reservation" method="post">
     <input type="hidden" asp-for="Id" />
-    <p>Czy na pewno chcesz usunąć rezerwację o ID: @Model.Id i nazwie: @Model.Name?</p>
+    <p>Are you sure that you want delete reservation ID: @Model.Id i nazwie: @Model.Name?</p>
 
-    <button type="submit" class="btn btn-danger">Usuń</button>
-    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
 </div>

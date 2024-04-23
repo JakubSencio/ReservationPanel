@@ -2,7 +2,42 @@
 
 @if (Model.Count > 0)
 {
-    <div style="background-color: #f8f9fa; padding: 20px;">
+    <div style="background-color: white; padding: 20px;">
+
+    <div class="row mb-3">
+        <div class="col-md-1">
+            <label for="filterId" class="form-label">ID:</label>
+            <input type="text" class="form-control" id="filterId">
+        </div>
+        <div class="col-md-2">
+            <label for="filterStartDate" class="form-label">Date:</label>
+            <input type="text" class="form-control" id="filterStartDate">
+        </div>
+        <div class="col-md-2">
+            <label for="filterLastDate" class="form-label">City:</label>
+            <input type="text" class="form-control" id="filterLastDate">
+        </div>
+        <div class="col-md-2">
+            <label for="filterStartPlace" class="form-label">Region:</label>
+            <input type="text" class="form-control" id="filterStartPlace">
+        </div>
+        <div class="col-md-2">
+            <label for="filterLastPlace" class="form-label">Room:</label>
+            <input type="text" class="form-control" id="filterLastPlace">
+        </div>
+        <div class="col-md-1">
+            <label for="filterUsers" class="form-label">Owner:</label>
+            <input type="text" class="form-control" id="filterUsers">
+        </div>
+        <div class="col-md-1">
+            <label for="filterGuide" class="form-label">Price:</label>
+            <input type="text" class="form-control" id="filterGuide">
+        </div>
+        <div class="col-md-1">
+            <label for="filterPriority" class="form-label">Priority:</label>
+            <input type="text" class="form-control" id="filterPriority">
+        </div>
+    </div>
         <table class="table">
             <tr>
                 <th>
@@ -62,13 +97,55 @@
                     </td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a href="@Url.Action("Edit", "Reservation", new { id = item.Id })" class="btn btn-primary">Edytuj</a>
-                            <a href="@Url.Action("Details", "Reservation", new { id = item.Id })" class="btn btn-info">Szczegóły</a>
-                            <a href="@Url.Action("Delete", "Reservation", new { id = item.Id, name = item.Name })" class="btn btn-danger">Usuń</a>
+                            <a href="@Url.Action("Edit", "Reservation", new { id = item.Id })" class="btn btn-primary">Edit</a>
+                            <a href="@Url.Action("Details", "Reservation", new { id = item.Id })" class="btn btn-info">Details</a>
+                            <a href="@Url.Action("Delete", "Reservation", new { id = item.Id, name = item.Name })" class="btn btn-danger">Delete</a>
                         </div>
                     </td>
                 </tr>
             }
         </table>
     </div>
+    <a asp-action="Create" class="btn btn-success">Create new reservation</a>
+}
+
+@section Scripts {
+    <script>
+        function filterTravels() {
+            var filterId = $("#filterId").val().toLowerCase();
+            var filterStartDate = $("#filterStartDate").val().toLowerCase();
+            var filterLastDate = $("#filterLastDate").val().toLowerCase();
+            var filterStartPlace = $("#filterStartPlace").val().toLowerCase();
+            var filterLastPlace = $("#filterLastPlace").val().toLowerCase();
+            var filterUsers = $("#filterUsers").val().toLowerCase();
+            var filterGuide = $("#filterGuide").val().toLowerCase();
+            var filterPriority = $("#filterPriority").val().toLowerCase();
+
+            $("tbody tr").filter(function () {
+                var id = $(this).find("td:nth-child(1)").text().toLowerCase();
+                var startDate = $(this).find("td:nth-child(2)").text().toLowerCase();
+                var lastDate = $(this).find("td:nth-child(3)").text().toLowerCase();
+                var startPlace = $(this).find("td:nth-child(4)").text().toLowerCase();
+                var lastPlace = $(this).find("td:nth-child(5)").text().toLowerCase();
+                var users = $(this).find("td:nth-child(6)").text().toLowerCase();
+                var guide = $(this).find("td:nth-child(7)").text().toLowerCase();
+                var priority = $(this).find("td:nth-child(8)").text().toLowerCase();
+
+                var idMatch = id.includes(filterId) || filterId === "";
+                var startDateMatch = startDate.includes(filterStartDate) || filterStartDate === "";
+                var lastDateMatch = lastDate.includes(filterLastDate) || filterLastDate === "";
+                var startPlaceMatch = startPlace.includes(filterStartPlace) || filterStartPlace === "";
+                var lastPlaceMatch = lastPlace.includes(filterLastPlace) || filterLastPlace === "";
+                var usersMatch = users.includes(filterUsers) || filterUsers === "";
+                var guideMatch = guide.includes(filterGuide) || filterGuide === "";
+                var priorityMatch = priority.includes(filterPriority) || filterPriority === "";
+
+                $(this).toggle(idMatch && startDateMatch && lastDateMatch && startPlaceMatch && lastPlaceMatch && usersMatch && guideMatch && priorityMatch);
+            });
+        }
+
+        $(document).ready(function () {
+            $("#filterId, #filterStartDate, #filterLastDate, #filterStartPlace, #filterLastPlace, #filterUsers, #filterGuide, #filterPriority").keyup(filterTravels);
+        });
+    </script>
 }

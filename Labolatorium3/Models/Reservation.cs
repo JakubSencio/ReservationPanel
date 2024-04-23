@@ -14,28 +14,28 @@ namespace Labolatorium3.Models
         public int Id { get; set; } //Reservation - data, miasto, adres, pokój, właściciel, cena 
 
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Proszę zaznaczyć datę")]
-        [Display(Name = "Data")]
+        [Required(ErrorMessage = "Please entry date")]
+        [Display(Name = "Date")]
         public DateTime Date { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać miasto")]
-        [Display(Name = "Miasto")]
+        [Required(ErrorMessage = "Please entry city")]
+        [Display(Name = "City")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać adres")]
-        [Display(Name = "Adress")]
+        [Required(ErrorMessage = "Please entry region")]
+        [Display(Name = "Region")]
         public string Region { get; set; }
 
-        [Display(Name = "Numer pokoju")]
+        [Display(Name = "Room")]
         public int Room { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać imię")]
-        [Display(Name = "Właściciel")]
+        [Required(ErrorMessage = "Please entry owner")]
+        [Display(Name = "Owner")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Proszę wpisać cenę")]
-        [Range(0, int.MaxValue, ErrorMessage = "Proszę podać poprawną cenę")]
-        [Display(Name = "Cena")]
+        [Required(ErrorMessage = "Please entry price")]
+        [Range(0, int.MaxValue, ErrorMessage = "Please entry price")]
+        [Display(Name = "Price")]
         public int Price { get; set; }
 
         public Priority Priority { get; set; }

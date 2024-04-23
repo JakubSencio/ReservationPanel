@@ -2,25 +2,25 @@
 @model Reservation
 
 <div style="background-color: #f8f9fa; padding: 20px;">
-    <h2>Utwórz nową rezerwację</h2>
+    <h2>Create new reservation</h2>
 
     <form asp-action="Create" asp-controller="Reservation" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
 
         <div class="form-group">
-            <label asp-for="Date">Data:</label>
+            <label asp-for="Date">Date:</label>
             <input asp-for="Date" class="form-control" />
             <span asp-validation-for="Date" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="City">Miasto:</label>
+            <label asp-for="City">City:</label>
             <input asp-for="City" class="form-control" />
             <span asp-validation-for="City" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Region">Adres:</label>
+            <label asp-for="Region">Region:</label>
             <input asp-for="Region" class="form-control" />
             <span asp-validation-for="Region" class="text-danger"></span>
         </div>
@@ -32,25 +32,25 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Name">Właściciel:</label>
+            <label asp-for="Name">Owner:</label>
             <input asp-for="Name" class="form-control" />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Price">Cena:</label>
+            <label asp-for="Price">Price:</label>
             <input asp-for="Price" class="form-control" />
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Priority">Priorytet:</label>
+            <label asp-for="Priority">Priority:</label>
             <select class="form-control" asp-for="Priority" asp-items="@(Html.GetEnumSelectList<Priority>())"></select>
             <span asp-validation-for="Priority" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="OrganizationId">Organizacja:</label>
+            <label asp-for="OrganizationId">Organization:</label>
             <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
             <span asp-validation-for="OrganizationId" class="text-danger"></span>
         </div>

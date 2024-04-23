@@ -3,37 +3,37 @@
     string OrganisationTitle = Model.Organizations.FirstOrDefault(b => b.Value == Model.OrganizationId.ToString())?.Text;
 }
 <div style="background-color: #f8f9fa; padding: 20px;">
-<h2>Szczegóły Rezerwacji</h2>
+<h2>Reservation details</h2>
         
 <div>
     <dl class="dl-horizontal">
         <dt>ID</dt>
         <dd>@Model.Id</dd>
 
-        <dt>Data</dt>
+        <dt>Date</dt>
         <dd>@Model.Date</dd>
 
-        <dt>Miasto</dt>
+        <dt>City</dt>
         <dd>@Model.City</dd>
 
-        <dt>Adres</dt>
+        <dt>Region</dt>
         <dd>@Model.Region</dd>
 
-        <dt>Pokój</dt>
+        <dt>Room</dt>
         <dd>@Model.Room</dd>
         
-        <dt>Właściciel</dt>
+        <dt>Owner</dt>
         <dd>@Model.Name</dd>
 
-        <dt>Cena</dt>
-        <dd>@Model.Room</dd>
+        <dt>Price</dt>
+        <dd>@Model.Price</dd>
 
-        <dt>Organizacja</dt>
+        <dt>Organisation</dt>
             <dd>@OrganisationTitle</dd>
     </dl>
 </div>
 
 <p>
-    <a asp-action="Index" class="btn btn-primary">Powrót do Listy</a>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
 </p>
 </div>
