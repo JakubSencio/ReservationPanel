@@ -1,5 +1,7 @@
 Reservation Panel - Application Documentation
 
+The Reservation Panel Application offers a comprehensive solution for efficient management of reservations, catering to diverse business needs. Users access the application securely through individual authentication credentials, ensuring privacy and data integrity. Upon login, users are greeted with a dynamic dashboard presenting an overview of reservations and intuitive controls for streamlined management. From adding new reservations to editing existing ones and removing outdated entries, users have full control over reservation data. Robust data validation mechanisms guarantee the accuracy of entered information, while data filtering capabilities empower users to swiftly locate specific reservations. Built on ASP.NET for backend development and utilizing SQLite for data storage, the application ensures reliability, scalability, and performance, making it an ideal choice for reservation management across various industries.
+
 I. Logging into the Application
 ![image](https://github.com/JakubSencio/ReservationPanel/assets/116436495/234c480f-a128-4250-8171-435fdd2e80fc)
 
@@ -24,11 +26,7 @@ The application interface provides intuitive tools for managing reservations, al
 IV. Data Validation
 ![image](https://github.com/JakubSencio/ReservationPanel/assets/116436495/d440f9ba-b5eb-4570-9cde-42ea580f5815)
 
-To ensure the accuracy and integrity of data entered into the system, the application implements robust data validation mechanisms. These mechanisms validate user input to prevent erroneous or malicious data from being processed. Data validation includes:
-
-Client-Side Validation: Implemented using JavaScript or other client-side scripting languages, client-side validation provides immediate feedback to users when they enter data into form fields. This helps in catching errors early and improving user experience.
-Server-Side Validation: Server-side validation is performed on the server after the form is submitted. It serves as a secondary line of defense to ensure that only valid data is accepted by the application. Server-side validation checks include verifying data format, range validation, and checking for any inconsistencies or anomalies.
-By employing both client-side and server-side validation techniques, the application ensures that only accurate and appropriate data is accepted, minimizing the risk of data corruption or security vulnerabilities.
+To ensure the accuracy and integrity of data entered into the system, the application implements robust data validation mechanisms. These mechanisms validate user input to prevent erroneous or malicious data from being processed.
 
 V. Data Filtering
 ![image](https://github.com/JakubSencio/ReservationPanel/assets/116436495/03d34d7a-5b20-4a0f-be6a-21754b50dd6e)
@@ -36,4 +34,4 @@ V. Data Filtering
 The application includes data filtering capabilities to enable users to efficiently search and retrieve relevant information. Users can apply filters based on various criteria such as date, customer name, or reservation status. This feature enhances user experience by allowing them to quickly locate specific reservations or narrow down search results according to their preferences. Data filtering ensures that users can access the information they need promptly, contributing to improved productivity and usability of the application.
 
 VI. Technologies used
-The application is built using ASP.NET for the backend development, providing a robust and scalable framework for web application development. For data storage, the application utilizes SQLite, a lightweight and efficient relational database management system (RDBMS). These technologies are chosen for their reliability, performance, and compatibility with the requirements of the reservation management application
+The application is built using ASP.NET for the backend development, providing a robust and scalable framework for web application development. For data storage, the application utilizes SQLite, a lightweight and efficient relational database management system. These technologies are chosen for their reliability, performance, and compatibility with the requirements of the reservation management application
